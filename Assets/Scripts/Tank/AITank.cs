@@ -131,7 +131,7 @@ namespace Tank
                 }
 
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(directionToPointNormalaized), 2 * Time.deltaTime);
-               
+
                 if (directionToPoint.magnitude > finishedDistance)
                 {
                     this.transform.Translate(0, 0, 5 * Time.deltaTime);
@@ -166,10 +166,15 @@ namespace Tank
                 {
                     this.transform.Rotate(0, 3, 0);
                 }
-                if(transform.rotation.y - lastRotation == 0)
+                var directionToPointNormalaized = (pointInFront - this.transform.position).normalized;
+                Ray ray = new Ray(transform.position, directionToPointNormalaized);
+                if (Physics.Raycast(ray, out hit1))
                 {
-                    canMove = true;
-                    stoped = false;
+                    if(hit1.collider.tag == "Player")
+                    {
+                        canMove = true;
+                        stoped = false;
+                    }
                 }
 
             }
