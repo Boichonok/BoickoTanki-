@@ -32,6 +32,7 @@ namespace Tank
 
         private RaycastHit rayHit1;
 
+        private Vector3 bufModulePos;
 
         private ShootAction EventShootAITankAction;
         public DeadAction EventDeadAction;
@@ -43,6 +44,7 @@ namespace Tank
 
             wayPoints = GameObject.FindGameObjectsWithTag("WayPoint");
             currentWayPoint = wayPoints[Random.Range(0, wayPoints.Length - 1)];
+            bufModulePos = GunModule.SpawnModulePlace.localPosition;
         }
 
         private void Update()
@@ -137,7 +139,7 @@ namespace Tank
 
                 var rotationTower = Quaternion.Slerp(GunModule.SpawnModulePlace.rotation, lookRotation, TankSpeed * Time.deltaTime);
                 GunModule.SpawnModulePlace.rotation = rotationTower;
-
+                GunModule.SpawnModulePlace.localPosition = bufModulePos;
                 if (directionToPoint.magnitude > finishedDistance)
                 {
                     this.transform.Translate(0, 0, TankSpeed * Time.deltaTime);

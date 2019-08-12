@@ -229,7 +229,7 @@ MonoBehaviour:
   - {fileID: 1977666328897002, guid: 9fec62408fba04c4087323fd0bc7f09b, type: 3}
   - {fileID: 8339186887847742712, guid: e82c1b8d86f5a4bc28d122e1bdd5e677, type: 3}
   - {fileID: 1103739913274325673, guid: 544b59130d20f4b8c9efc73b259bbc3b, type: 3}
-  spawnShell: {fileID: 0}
+  spawnShell: {fileID: 8518996321680672051}
   tower: {fileID: 0}
   shootPower: 0
   spawnModulePlace: {fileID: 890941493012181384}
