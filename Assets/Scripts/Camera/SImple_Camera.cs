@@ -6,6 +6,7 @@ using Tank;
 public class SImple_Camera : MonoBehaviour
 {
     private Transform target;
+    private Transform newTarget;
     public Vector3 offset;
     public float sensitivity; // чувствительность мышки
     public float limit = 30; // ограничение вращения по Y
@@ -25,15 +26,23 @@ public class SImple_Camera : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0) offset.z += zoom;
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoom;
-        offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
+       
+        if (newTarget != null)
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0) offset.z += zoom;
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0) offset.z -= zoom;
+            offset.z = Mathf.Clamp(offset.z, -Mathf.Abs(zoomMax), -Mathf.Abs(zoomMin));
 
-        X = target.transform.eulerAngles.y;
-        Y += Input.GetAxis("Mouse Y") * sensitivity;
-        Y = Mathf.Clamp(Y, -limit, 0);
-        transform.eulerAngles = new Vector3(-Y, X, 0);
-        transform.position = transform.rotation * offset + target.position;
+            X = newTarget.transform.eulerAngles.y;
+            Y += Input.GetAxis("Mouse Y") * sensitivity;
+            Y = Mathf.Clamp(Y, -limit, 0);
+            transform.eulerAngles = new Vector3(-Y, X, 0);
+            transform.position = transform.rotation * offset + newTarget.position;
+        }
+        else
+        {
+            newTarget = target.Find("Tower(Clone)");
+        }
     }
 
 

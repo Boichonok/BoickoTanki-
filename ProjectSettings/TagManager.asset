@@ -10,6 +10,7 @@ TagManager:
   - SpawnTankPoint
   - MobaCamera
   - WayPoint
+  - Tower
   layers:
   - Default
   - TransparentFX

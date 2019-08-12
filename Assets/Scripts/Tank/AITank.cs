@@ -44,7 +44,7 @@ namespace Tank
 
             wayPoints = GameObject.FindGameObjectsWithTag("WayPoint");
             currentWayPoint = wayPoints[Random.Range(0, wayPoints.Length - 1)];
-            bufModulePos = GunModule.SpawnModulePlace.localPosition;
+            bufModulePos = Vector3.zero;
         }
 
         private void Update()
@@ -137,9 +137,9 @@ namespace Tank
 
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, lookRotation, TankSpeed * Time.deltaTime);
 
-                var rotationTower = Quaternion.Slerp(GunModule.SpawnModulePlace.rotation, lookRotation, TankSpeed * Time.deltaTime);
-                GunModule.SpawnModulePlace.rotation = rotationTower;
-                GunModule.SpawnModulePlace.localPosition = bufModulePos;
+                var rotationTower = Quaternion.Slerp(GunModule.Tower.transform.rotation, lookRotation, TankSpeed * Time.deltaTime);
+                GunModule.Tower.transform.rotation = rotationTower;
+                GunModule.Tower.transform.localPosition = bufModulePos;
                 if (directionToPoint.magnitude > finishedDistance)
                 {
                     this.transform.Translate(0, 0, TankSpeed * Time.deltaTime);

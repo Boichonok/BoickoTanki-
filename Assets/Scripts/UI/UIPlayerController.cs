@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Tank;
 using LevelConctollers;
 
@@ -97,14 +98,16 @@ namespace UiControllers
         {
             GameDataTransmiter.Instance.isBackToMainMenu = false;
             ClearEnemy();
-            Application.LoadLevel(0);
+            Destroy(battleSceneController.GetPlayerTankController().gameObject);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
 
         public void BackToMainMenu()
         {
             GameDataTransmiter.Instance.isBackToMainMenu = true;
             ClearEnemy();
-            Application.LoadLevel(0);
+            Destroy(battleSceneController.GetPlayerTankController().gameObject);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
 
         private void ClearEnemy()

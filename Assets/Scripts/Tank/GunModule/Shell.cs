@@ -48,10 +48,10 @@ namespace Tank
             isLive = false;
             Destroy(this.gameObject);
             Tank target;
-            if (collision.gameObject.tag != "SpawnModulePoint")
+            if (collision.gameObject.tag != "Tower")
                 target = collision.gameObject.GetComponent<Tank>();
             else
-                target = collision.gameObject.GetComponentInParent<Tank>();
+                target = collision.gameObject.transform.parent.GetComponentInParent<Tank>();
             if (target != null)
             {
                 target.TankParams.TakeDamage(AttackValue);

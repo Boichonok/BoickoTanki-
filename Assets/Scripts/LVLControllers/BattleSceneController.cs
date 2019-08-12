@@ -30,6 +30,7 @@ namespace LevelConctollers
         {
             if (level == 1)
             {
+                Time.timeScale = 1;
                 playerTankPrefab = GameDataTransmiter.Instance.playerTank.gameObject;
                 foreach (AITank aiTank in GameDataTransmiter.Instance.enemyTank)
                 {
@@ -43,7 +44,7 @@ namespace LevelConctollers
             playerTankController = Instantiate<GameObject>(playerTankPrefab, spawnPoints[0].position,spawnPoints[0].rotation).GetComponent<PlayerTankController>();
             playerTankController.SpawnPoint = spawnPoints[0];
             playerTankController.EventDeadAction += CountingPlayerDeth;
-            for (int i = 0; i < aiTanksPrefabs.Count; i++)
+            for (int i = 0; i < spawnPoints.Length; i++)
             {
                 if (i > 0)
                 {

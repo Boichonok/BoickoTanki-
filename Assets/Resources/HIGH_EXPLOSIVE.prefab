@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd3d9462e2534d80bb79bddaf35114d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShellType: 0
-  AttackValue: 0
-  shellColor: {r: 0, g: 0, b: 0, a: 0}
+  ShellType: 2
+  AttackValue: 90
+  shellColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!54 &1123238315849855643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -118,7 +118,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 20
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 0.1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0

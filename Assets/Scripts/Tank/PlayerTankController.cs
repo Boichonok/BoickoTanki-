@@ -6,7 +6,7 @@ namespace Tank
     public class PlayerTankController : Tank
     {
 
-        private Rigidbody tourrer;
+       // private Rigidbody tourrer;
 
        
         [SerializeField]
@@ -21,8 +21,7 @@ namespace Tank
 
         private void Start()
         {
-            tourrer = GunModule.SpawnModulePlace.GetComponent<Rigidbody>();
-           
+          
             GetComponentInChildren<MeshRenderer>().material.color = TankColor;
 
         }
@@ -82,7 +81,7 @@ namespace Tank
 
             Vector3 rotateTourrer = new Vector3(0, mouseXpos * TankSpeed, 0);
             Quaternion deltaRotation = Quaternion.Euler(TankSpeed * rotateTourrer * Time.fixedDeltaTime);
-            tourrer.rotation = deltaRotation;
+            GunModule.Tower.GetComponent<Rigidbody>().rotation = deltaRotation;
            
 
         }

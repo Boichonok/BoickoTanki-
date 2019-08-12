@@ -2,7 +2,7 @@
 using UnityEngine;
 namespace Tank
 {
-    [System.Serializable]
+  
     public class GunModule: MonoBehaviour
     {
         [SerializeField]
@@ -29,13 +29,14 @@ namespace Tank
         private GameObject tower;
         public GameObject Tower { get { return tower; } set { tower = value; } }
 
+        [SerializeField]
         private GameObject gun;
         public GameObject Gun { get { return gun; } private set { gun = value; }}
 
         [SerializeField]
         private float shootPower;
         public float ShootPower { get { return shootPower; } set { shootPower = value; } }
-
+        [SerializeField]
         private Color moduleColor;
         public Color ModuleColor { get { return moduleColor; } set { moduleColor = value; }}
 
@@ -45,11 +46,13 @@ namespace Tank
 
         private void Start()
         {
-            var towerGo = Instantiate(Tower, spawnModulePlace,false);
-          
-            towerGo.GetComponent<Renderer>().material.color = moduleColor;
+            var towerGo = Instantiate(Tower, spawnModulePlace);
+            towerGo.transform.localPosition = Vector3.zero;
+            tower = towerGo;
+            spawnShell = towerGo.transform.Find("SpawnShell");
             gun = towerGo.transform.Find("Gun").gameObject;
             gun.GetComponent<Renderer>().material.color = moduleColor;
+            towerGo.GetComponent<Renderer>().material.color = moduleColor;
 
         }
 

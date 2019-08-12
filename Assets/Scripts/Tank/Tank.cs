@@ -46,8 +46,9 @@ namespace Tank
 
             var shell = Instantiate(shellComponent.gameObject, GunModule.SpawnShell.position,GunModule.SpawnShell.rotation);
             
-             shell.GetComponent<Rigidbody>().velocity = GunModule.ShootPower * gunModules.SpawnShell.forward;
-          
+            shell.GetComponent<Rigidbody>().velocity = gunModules.Tower.GetComponent<Rigidbody>().velocity;
+            shell.GetComponent<Rigidbody>().AddForce(gunModules.SpawnShell.transform.forward * GunModule.ShootPower * 500);
+
         }
 
       
