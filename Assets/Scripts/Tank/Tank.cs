@@ -33,7 +33,9 @@ namespace Tank
         private Transform spawnModulePos = null;
         public Transform SpawnModulePos { get { return spawnModulePos; } private set { spawnModulePos = value; } }
 
-        public Transform SpawnPoint { get; set; }
+        [SerializeField]
+        private Transform spawnPoint = null;
+        public Transform SpawnPoint { get { return spawnPoint; } set { spawnPoint = value; } }
 
         [SerializeField]
         protected ShellType currentShellType = ShellType.ARMOR_PIERCING;
@@ -57,7 +59,8 @@ namespace Tank
         #region Spawn_Respawn_Tank
         protected void ReSpawnTank()
         {
-            this.transform.position = this.transform.parent.transform.position;
+            transform.position = spawnPoint.position;
+            transform.rotation = spawnPoint.rotation;//this.transform.parent.transform.position;
             tankParams.ResetHp();
         }
 

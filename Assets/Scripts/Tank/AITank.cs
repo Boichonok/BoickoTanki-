@@ -16,6 +16,7 @@ namespace Tank
 
         private GameObject[] wayPoints;
 
+        [SerializeField]
         private GameObject currentWayPoint;
 
         private GameObject playerTank;
@@ -64,7 +65,7 @@ namespace Tank
 
             if (Vector3.Distance(playerTank.transform.position, this.transform.position) < shotDistance * 2.0f)
             {
-                var isRideFinished = RideToPoint(playerTank.transform.position, 0.70f, rayHit, 8, 7, 7, rayHit1, shotDistance);
+                var isRideFinished = RideToPoint(playerTank.transform.position, 0.9f, rayHit, 7, 6, 6, rayHit1, shotDistance);
                 if (isRideFinished)
                 {
                     EventShootAITankAction((int)currentShellType);
@@ -75,7 +76,7 @@ namespace Tank
             {
                 if (currentWayPoint == lastWayPoint)
                     currentWayPoint = wayPoints[Random.Range(0, wayPoints.Length - 1)];
-                var isRide = RideToPoint(currentWayPoint.transform.position, 0.9f, rayHit, 10, 7, 7, rayHit1, 5.0f);
+                var isRide = RideToPoint(currentWayPoint.transform.position, 0.9f, rayHit, 7, 6, 6, rayHit1, 5.0f);
                 if (isRide)
                 {
                     lastWayPoint = currentWayPoint;
@@ -108,19 +109,19 @@ namespace Tank
                 if (Physics.Raycast(centralRay, transform.forward, out hit, centralRayLength))
                 {
                     Debug.DrawLine(transform.position, hit.point, Color.red);
-                    directionToPointNormalaized += hit.normal * 5;
+                    directionToPointNormalaized += hit.normal * 3;
                 }
 
                 if (Physics.Raycast(leftRay, transform.forward, out hit, leftRayLength))
                 {
                     Debug.DrawLine(transform.position, hit.point, Color.red);
-                    directionToPointNormalaized += hit.normal * 5;
+                    directionToPointNormalaized += hit.normal * 3;
                 }
 
                 if (Physics.Raycast(rightRay, transform.forward, out hit, rightRayLength))
                 {
                     Debug.DrawLine(transform.position, hit.point, Color.red);
-                    directionToPointNormalaized += hit.normal * 5;
+                    directionToPointNormalaized += hit.normal * 3;
                 }
                 else
                 {
@@ -130,11 +131,15 @@ namespace Tank
 
                 }
 
-                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(directionToPointNormalaized), 2 * Time.deltaTime);
+                var lookRotation = Quaternion.LookRotation(directionToPointNormalaized);
 
+                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, lookRotation, TankSpeed * Time.deltaTime);
+
+                var rotationTower = Quaternion.Slerp(SpawnModulePos.rotation, lookRotation, TankSpeed * Time.deltaTime);
+                SpawnModulePos.rotation = rotationTower;
                 if (directionToPoint.magnitude > finishedDistance)
                 {
-                    this.transform.Translate(0, 0, 5 * Time.deltaTime);
+                    this.transform.Translate(0, 0, TankSpeed * Time.deltaTime);
                 }
                 else
                 {
@@ -170,7 +175,7 @@ namespace Tank
                 Ray ray = new Ray(transform.position, directionToPointNormalaized);
                 if (Physics.Raycast(ray, out hit1))
                 {
-                    if(hit1.collider.tag == "Player")
+                    if (hit1.collider.tag == "Player")
                     {
                         canMove = true;
                         stoped = false;

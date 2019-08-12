@@ -23,10 +23,11 @@ namespace Tank
         {
             tourrer = SpawnModulePos.GetComponent<Rigidbody>();
             cameraObject = GameObject.FindWithTag("MainCamera");
-            cameraObject.GetComponent<SImple_Camera>().playerTankTower = SpawnModulePos.gameObject;
-            GetComponentInChildren<MeshRenderer>().material.color = TankColor;
+            cameraObject.GetComponent<SImple_Camera>().InitCamera(SpawnModulePos.gameObject);
             cameraObject.transform.SetParent(SpawnModulePos);
-            cameraObject.GetComponent<SImple_Camera>().InitCamera();
+
+            GetComponentInChildren<MeshRenderer>().material.color = TankColor;
+
         }
 
         private void FixedUpdate()
@@ -61,7 +62,7 @@ namespace Tank
 
             Vector3 movement;
             Quaternion rotation;
-            movement = new Vector3(0f, 0.0f, moveVertical) * TankSpeed;
+            movement = new Vector3(0f, 0.0f, moveVertical) * TankSpeed ;
 
             if (movement.z >= 0)
             {

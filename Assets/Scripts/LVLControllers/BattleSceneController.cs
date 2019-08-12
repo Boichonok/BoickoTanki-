@@ -40,15 +40,18 @@ namespace LevelConctollers
 
         private void Start()
         {
-            playerTankController = Instantiate<GameObject>(playerTankPrefab, spawnPoints[0]).GetComponent<PlayerTankController>();
+            playerTankController = Instantiate<GameObject>(playerTankPrefab, spawnPoints[0].position,spawnPoints[0].rotation).GetComponent<PlayerTankController>();
+            playerTankController.SpawnPoint = spawnPoints[0];
             playerTankController.EventDeadAction += CountingPlayerDeth;
             for (int i = 0; i < aiTanksPrefabs.Count; i++)
             {
-
-                aiTanksPrefabs[i].GetComponent<AITank>().SpawnPoint = spawnPoints[Random.Range(1, spawnPoints.Length - 1)];
-                var enemyTankGo = Instantiate(aiTanksPrefabs[i], aiTanksPrefabs[i].GetComponent<AITank>().SpawnPoint);
-                enemyTankGo.GetComponent<AITank>().EventDeadAction += CountingEnemyDeath;
-                aITanksControllers.Add(enemyTankGo.GetComponent<AITank>());
+                if (i > 0)
+                {
+                    aiTanksPrefabs[i-1].GetComponent<AITank>().SpawnPoint = spawnPoints[i];
+                    var enemyTankGo = Instantiate(aiTanksPrefabs[i-1], aiTanksPrefabs[i-1].GetComponent<AITank>().SpawnPoint);
+                    enemyTankGo.GetComponent<AITank>().EventDeadAction += CountingEnemyDeath;
+                    aITanksControllers.Add(enemyTankGo.GetComponent<AITank>());
+                }
             }
         }
 
@@ -63,13 +66,12 @@ namespace LevelConctollers
         private void CountingPlayerDeth()
         {
             countPlayerDeth++;
-            print("Death: " + countPlayerDeth);
+
         }
 
         private void CountingEnemyDeath()
         {
             countEnemyDeth++;
-            print("Kill:" + countEnemyDeth);
         }
 
 

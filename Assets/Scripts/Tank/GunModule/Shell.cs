@@ -4,8 +4,8 @@ namespace Tank
 {
     public enum ShellType
     {
-        ARMOR_PIERCING = 0, 
-        ARMOR_PIERCING_SUBCIBER = 1, 
+        ARMOR_PIERCING = 0,
+        ARMOR_PIERCING_SUBCIBER = 1,
         HIGH_EXPLOSIVE = 2
     }
 
@@ -47,7 +47,11 @@ namespace Tank
                 return;
             isLive = false;
             Destroy(this.gameObject);
-            var target = collision.gameObject.GetComponent<Tank>();
+            Tank target;
+            if (collision.gameObject.tag != "SpawnModulePoint")
+                target = collision.gameObject.GetComponent<Tank>();
+            else
+                target = collision.gameObject.GetComponentInParent<Tank>();
             if (target != null)
             {
                 target.TankParams.TakeDamage(AttackValue);

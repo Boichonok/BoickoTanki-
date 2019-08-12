@@ -38,6 +38,7 @@ namespace Tank
 
         private Color moduleColor;
         public Color ModuleColor { get { return moduleColor; } set { moduleColor = value; }}
+
         [SerializeField]
         private Transform spawnModulePlace;
         public Transform SpawnModulePlace { get { return spawnModulePlace; } set { spawnModulePlace = value; } }
