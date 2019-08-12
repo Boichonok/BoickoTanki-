@@ -137,17 +137,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289375547461184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 291e9eaa704fc4bd4aaed07efa2e40d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 62b3a3b9d9b2a42d28b9e9e036cee9bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunModules: {fileID: 652385200298135706}
-  tankColor: {r: 0.06357217, g: 0.8301887, b: 0.05090782, a: 0}
-  tankSpeed: 5
-  collisionAttack: 200
-  tankParams: {fileID: 1905491938708464652}
-  spawnPoint: {fileID: 0}
-  currentShellType: 0
-  rbTank: {fileID: 54101450875234674}
+  hp: 500
+  armor: 300
+  maxHp: 500
+  maxArmor: 500
 --- !u!114 &1905491938708464652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,13 +153,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289375547461184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4217cad51c1543c69badc4524dacd5b, type: 3}
+  m_Script: {fileID: 11500000, guid: ec0b7ea287dca4946a0dfe84e230388b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 500
-  armor: 250
-  maxHp: 500
-  maxArmor: 500
+  gunModules: {fileID: 652385200298135706}
+  tankColor: {r: 0, g: 0, b: 0, a: 0}
+  tankSpeed: 8
+  collisionAttack: 200
+  tankParams: {fileID: 5312158729042741783}
+  spawnPoint: {fileID: 0}
+  currentShellType: 0
+  rbTank: {fileID: 54101450875234674}
 --- !u!114 &652385200298135706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,19 +173,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289375547461184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f5d241484aa64c178b8f86bcf690d83, type: 3}
+  m_Script: {fileID: 11500000, guid: febb531148dd744c197e148864552489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gunModuleId: 0
-  gunModuleName: Module 1
-  attackValue: 20
+  gunModuleName: 
+  attackValue: 0
   shells:
-  - {fileID: 1977666328897002, guid: 668827928282a40019e57504de7c1b74, type: 3}
-  - {fileID: 8339186887847742712, guid: 654aa7b24bbfb406f8ae24ecdb931deb, type: 3}
-  - {fileID: 1103739913274325673, guid: b9657b65b8770419c967953e765be91f, type: 3}
+  - {fileID: 1977666328897002, guid: 9fec62408fba04c4087323fd0bc7f09b, type: 3}
+  - {fileID: 8339186887847742712, guid: e82c1b8d86f5a4bc28d122e1bdd5e677, type: 3}
+  - {fileID: 1103739913274325673, guid: 544b59130d20f4b8c9efc73b259bbc3b, type: 3}
   spawnShell: {fileID: 6318233987009055648}
-  tower: {fileID: 1068029055945668, guid: 13c7bbc1e3bd3419789194edcad5800c, type: 3}
-  shootPower: 100
+  tower: {fileID: 0}
+  shootPower: 0
   spawnModulePlace: {fileID: 4255044237735100}
 --- !u!1 &1434862067518780
 GameObject:

@@ -102,12 +102,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8339186887847742712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b2fe709eece7466391a68bdf074da85, type: 3}
+  m_Script: {fileID: 11500000, guid: abd3d9462e2534d80bb79bddaf35114d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShellType: 1
-  AttackValue: 100
-  shellColor: {r: 0, g: 0, b: 0, a: 1}
+  ShellType: 0
+  AttackValue: 0
+  shellColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!54 &8321931505068065994
 Rigidbody:
   m_ObjectHideFlags: 0
