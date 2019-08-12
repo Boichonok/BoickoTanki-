@@ -8,7 +8,7 @@ namespace Tank
 
         private Rigidbody tourrer;
 
-        private GameObject cameraObject;
+       
         [SerializeField]
         private Rigidbody rbTank = null;
 
@@ -22,10 +22,7 @@ namespace Tank
         private void Start()
         {
             tourrer = GunModule.SpawnModulePlace.GetComponent<Rigidbody>();
-            cameraObject = GameObject.FindWithTag("MainCamera");
-            cameraObject.GetComponent<SImple_Camera>().InitCamera(GunModule.SpawnModulePlace.gameObject);
-            cameraObject.transform.SetParent(GunModule.SpawnModulePlace);
-
+           
             GetComponentInChildren<MeshRenderer>().material.color = TankColor;
 
         }

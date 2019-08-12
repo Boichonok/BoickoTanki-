@@ -96,13 +96,24 @@ namespace UiControllers
         public void BackToHangare()
         {
             GameDataTransmiter.Instance.isBackToMainMenu = false;
+            ClearEnemy();
             Application.LoadLevel(0);
         }
 
         public void BackToMainMenu()
         {
             GameDataTransmiter.Instance.isBackToMainMenu = true;
+            ClearEnemy();
             Application.LoadLevel(0);
+        }
+
+        private void ClearEnemy()
+        {
+            var enemys = FindObjectsOfType<AITank>();
+            foreach (AITank enemy in enemys)
+            {
+                Destroy(enemy.gameObject);
+            }
         }
     }
 }
