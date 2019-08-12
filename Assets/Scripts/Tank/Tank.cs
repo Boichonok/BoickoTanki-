@@ -29,10 +29,7 @@ namespace Tank
         protected TankParams tankParams;
         public TankParams TankParams { get { return tankParams; } private set { tankParams = value; } }
 
-        [SerializeField]
-        private Transform spawnModulePos = null;
-        public Transform SpawnModulePos { get { return spawnModulePos; } private set { spawnModulePos = value; } }
-
+       
         [SerializeField]
         private Transform spawnPoint = null;
         public Transform SpawnPoint { get { return spawnPoint; } set { spawnPoint = value; } }
@@ -47,9 +44,13 @@ namespace Tank
         {
             Shell shellComponent = GunModule.Shells[currentShell].GetComponent<Shell>();
 
-            var shell = Instantiate(shellComponent.gameObject, GunModule.SpawnShell);
+            var shell = Instantiate(shellComponent.gameObject, GunModule.SpawnShell.position,GunModule.SpawnShell.rotation);
 
-            shell.GetComponent<Rigidbody>().velocity = GunModule.ShootPower * GunModule.SpawnShell.forward;
+            shell.GetComponent<Rigidbody>().velocity = GunModule.ShootPower * gunModules.SpawnShell.forward;
+            shell.GetComponent<Rigidbody>().rotation = GunModule.SpawnShell.rotation;
+            print(GunModule.SpawnShell.rotation);
+            print(shell.transform.rotation);
+
         }
 
       

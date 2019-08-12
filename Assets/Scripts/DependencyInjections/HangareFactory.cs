@@ -17,7 +17,7 @@ namespace Hangare
             var modulePrefub = Resources.Load("Tower") as GameObject;
             gunModule.Tower = modulePrefub;
             gunModule.ModuleColor = color;
-            gunModule.SpawnModulePlace = tank.SpawnModulePos;
+           
         }
 
         protected Shell MakeShell(ShellType shellType, GunModule module)

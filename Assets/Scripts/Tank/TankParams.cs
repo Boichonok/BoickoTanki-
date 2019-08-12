@@ -11,9 +11,9 @@ namespace Tank
         private float armor;
 
         [SerializeField]
-        private float maxHp = 200f;
+        private float maxHp = 500f;
         [SerializeField]
-        private float maxArmor = 200f;
+        private float maxArmor = 500f;
 
         public float CurrentHPValue()
         {

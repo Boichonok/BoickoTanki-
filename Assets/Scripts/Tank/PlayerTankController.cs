@@ -21,10 +21,10 @@ namespace Tank
 
         private void Start()
         {
-            tourrer = SpawnModulePos.GetComponent<Rigidbody>();
+            tourrer = GunModule.SpawnModulePlace.GetComponent<Rigidbody>();
             cameraObject = GameObject.FindWithTag("MainCamera");
-            cameraObject.GetComponent<SImple_Camera>().InitCamera(SpawnModulePos.gameObject);
-            cameraObject.transform.SetParent(SpawnModulePos);
+            cameraObject.GetComponent<SImple_Camera>().InitCamera(GunModule.SpawnModulePlace.gameObject);
+            cameraObject.transform.SetParent(GunModule.SpawnModulePlace);
 
             GetComponentInChildren<MeshRenderer>().material.color = TankColor;
 
@@ -86,7 +86,7 @@ namespace Tank
             Vector3 rotateTourrer = new Vector3(0, mouseXpos * TankSpeed, 0);
             Quaternion deltaRotation = Quaternion.Euler(TankSpeed * rotateTourrer * Time.fixedDeltaTime);
             tourrer.rotation = deltaRotation;
-
+           
 
         }
 

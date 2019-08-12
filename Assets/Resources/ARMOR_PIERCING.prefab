@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977666328897002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.08978541, z: 0.015}
-  m_LocalScale: {x: 1.5830835, y: 1.1163948, z: 0.06300402}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977666328897002}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &23810291156557916
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -102,11 +102,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1977666328897002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 470d26bd83bce4042a0d97392ea66c02, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b2fe709eece7466391a68bdf074da85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShellType: 0
-  AttackValue: 90
+  AttackValue: 70
   shellColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!54 &54263626981240280
 Rigidbody:
@@ -116,10 +116,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977666328897002}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 20
   m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
+  m_AngularDrag: 0.5
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

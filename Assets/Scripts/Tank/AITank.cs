@@ -135,8 +135,9 @@ namespace Tank
 
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, lookRotation, TankSpeed * Time.deltaTime);
 
-                var rotationTower = Quaternion.Slerp(SpawnModulePos.rotation, lookRotation, TankSpeed * Time.deltaTime);
-                SpawnModulePos.rotation = rotationTower;
+                var rotationTower = Quaternion.Slerp(GunModule.SpawnModulePlace.rotation, lookRotation, TankSpeed * Time.deltaTime);
+                GunModule.SpawnModulePlace.rotation = rotationTower;
+
                 if (directionToPoint.magnitude > finishedDistance)
                 {
                     this.transform.Translate(0, 0, TankSpeed * Time.deltaTime);

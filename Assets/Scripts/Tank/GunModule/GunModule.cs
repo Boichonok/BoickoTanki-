@@ -41,7 +41,7 @@ namespace Tank
 
         [SerializeField]
         private Transform spawnModulePlace;
-        public Transform SpawnModulePlace { get { return spawnModulePlace; } set { spawnModulePlace = value; } }
+        public Transform SpawnModulePlace { get { return spawnModulePlace; } private set { spawnModulePlace = value; } }
 
         private void Start()
         {

@@ -55,7 +55,8 @@ namespace UiControllers
         {
             var currentShell = playerTank.CurrentShellType;
             shellName.text = currentShell.ToString();
-            shellAttackValue.text = playerTank.GunModule.Shells[(int)currentShell].GetComponent<Shell>().AttackValue.ToString();
+            shellAttackValue.text = playerTank.GunModule.Shells[(int)currentShell].GetComponent<Shell>().AttackValue.ToString() +
+                " + " + playerTank.GunModule.AttackValue.ToString();
         }
 
         private void UpdateEnemyKilledCount()

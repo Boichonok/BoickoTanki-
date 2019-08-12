@@ -274,7 +274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8483703516472984242}
+      - m_Target: {fileID: 85302192}
         m_MethodName: BackToHangare
         m_Mode: 1
         m_Arguments:
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8483703516472984242}
+      - m_Target: {fileID: 85302192}
         m_MethodName: CloseHelper
         m_Mode: 1
         m_Arguments:
@@ -774,7 +774,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8483703516472984242}
+      - m_Target: {fileID: 85302192}
         m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
@@ -1563,27 +1563,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8483703516472984243}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c141fddbff9a6414d8820fb7500cb03c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpBar: {fileID: 8483703516888176341}
-  shellName: {fileID: 759656549387418356}
-  shellAttackValue: {fileID: 391762574606971555}
-  enemyKillCount: {fileID: 5971931578958270343}
-  playerDeathCount: {fileID: 3077009560375312329}
-  menu: {fileID: 2065468423596644823}
-  helper: {fileID: 387934083645543298}
-  battleSceneController: {fileID: 85302192}
---- !u!114 &85302192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8483703516472984243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2fd7445400264301b44bf515e142e09, type: 3}
+  m_Script: {fileID: 11500000, guid: f26671bb54c0c474592ca876c5cdd73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints:
@@ -1597,6 +1577,27 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &85302192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483703516472984243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ebd76c110b7f4677a302fc6cb1c5b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 8483703516888176341}
+  shellName: {fileID: 759656549387418356}
+  shellAttackValue: {fileID: 391762574606971555}
+  enemyKillCount: {fileID: 5971931578958270343}
+  playerDeathCount: {fileID: 3077009560375312329}
+  menu: {fileID: 2065468423596644823}
+  helper: {fileID: 387934083645543298}
+  battleSceneController: {fileID: 8483703516472984242}
 --- !u!1 &8483703516888176342
 GameObject:
   m_ObjectHideFlags: 0
