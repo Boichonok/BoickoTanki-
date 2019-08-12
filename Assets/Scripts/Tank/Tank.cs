@@ -45,12 +45,9 @@ namespace Tank
             Shell shellComponent = GunModule.Shells[currentShell].GetComponent<Shell>();
 
             var shell = Instantiate(shellComponent.gameObject, GunModule.SpawnShell.position,GunModule.SpawnShell.rotation);
-
-            shell.GetComponent<Rigidbody>().velocity = GunModule.ShootPower * gunModules.SpawnShell.forward;
-            shell.GetComponent<Rigidbody>().rotation = GunModule.SpawnShell.rotation;
-            print(GunModule.SpawnShell.rotation);
-            print(shell.transform.rotation);
-
+            
+             shell.GetComponent<Rigidbody>().velocity = GunModule.ShootPower * gunModules.SpawnShell.forward;
+          
         }
 
       

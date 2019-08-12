@@ -27,8 +27,9 @@ Transform:
   m_GameObject: {fileID: 897540286756791160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.132, z: 0.037000027}
-  m_LocalScale: {x: 0.13886806, y: 0.09980695, z: 0.28265408}
-  m_Children: []
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8518996321680672051}
   m_Father: {fileID: 8112541727625808554}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -43,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.22, y: 0.08, z: 0.28}
+  m_Center: {x: 0, y: 0, z: 0.03}
 --- !u!54 &1122334291551892063
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -53,7 +54,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 897540286756791160}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -61,6 +62,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 94
   m_CollisionDetection: 0
+--- !u!1 &5992926338128967720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8518996321680672051}
+  m_Layer: 0
+  m_Name: SpawnShell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8518996321680672051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992926338128967720}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.385}
+  m_LocalScale: {x: 0.13745557, y: 0.09563195, z: 0.2578254}
+  m_Children: []
+  m_Father: {fileID: 890941493012181384}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8115022871717293884
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +229,7 @@ MonoBehaviour:
   - {fileID: 1977666328897002, guid: 668827928282a40019e57504de7c1b74, type: 3}
   - {fileID: 8339186887847742712, guid: 654aa7b24bbfb406f8ae24ecdb931deb, type: 3}
   - {fileID: 1103739913274325673, guid: b9657b65b8770419c967953e765be91f, type: 3}
+  spawnShell: {fileID: 8518996321680672051}
   tower: {fileID: 1068029055945668, guid: 13c7bbc1e3bd3419789194edcad5800c, type: 3}
   shootPower: 60
   spawnModulePlace: {fileID: 890941493012181384}

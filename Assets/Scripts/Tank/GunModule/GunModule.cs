@@ -21,7 +21,7 @@ namespace Tank
         private GameObject[] shells = new GameObject[3]; 
         public GameObject[] Shells { get { return shells; }  set { shells = value; } }
 
-
+        [SerializeField]
         private Transform spawnShell;
         public Transform SpawnShell { get { return spawnShell; } private set { spawnShell = value; }}
 
@@ -45,12 +45,12 @@ namespace Tank
 
         private void Start()
         {
-            var towerGo = Instantiate(Tower, spawnModulePlace);
+            var towerGo = Instantiate(Tower, spawnModulePlace,false);
+          
             towerGo.GetComponent<Renderer>().material.color = moduleColor;
             gun = towerGo.transform.Find("Gun").gameObject;
-           
             gun.GetComponent<Renderer>().material.color = moduleColor;
-            spawnShell = towerGo.transform.Find("SpawnShell");
+
         }
 
     }
