@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 3044800145112789361}
   - component: {fileID: 3110655558552199240}
   - component: {fileID: 3062430497177319096}
-  - component: {fileID: 3851890450357302184}
   m_Layer: 0
   m_Name: AITank8
   m_TagString: Enemy
@@ -170,12 +169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd7dd64b84c41442580cdf2bd0247a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunModules: {fileID: 3851890450357302184}
+  gunModules: {fileID: 0}
   tankColor: {r: 0.20496619, g: 0.8867924, b: 0.771612, a: 0}
   tankSpeed: 5
   collisionAttack: 200
   tankParams: {fileID: 3044800145112789361}
   spawnPoint: {fileID: 0}
+  spawnModulePlace: {fileID: 4078397782620529971}
   currentShellType: 0
   shotDistance: 15
   resetDelayShoting: 40
@@ -196,31 +196,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &3851890450357302184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3079082186189450690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: febb531148dd744c197e148864552489, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gunModuleId: 0
-  gunModuleName: 
-  attackValue: 0
-  shells:
-  - {fileID: 1977666328897002, guid: 9fec62408fba04c4087323fd0bc7f09b, type: 3}
-  - {fileID: 8339186887847742712, guid: e82c1b8d86f5a4bc28d122e1bdd5e677, type: 3}
-  - {fileID: 1103739913274325673, guid: 544b59130d20f4b8c9efc73b259bbc3b, type: 3}
-  spawnShell: {fileID: 0}
-  tower: {fileID: 0}
-  gun: {fileID: 0}
-  shootPower: 0
-  moduleColor: {r: 0, g: 0, b: 0, a: 0}
-  spawnModulePlace: {fileID: 4078397782620529971}
 --- !u!1 &3079123025645719158
 GameObject:
   m_ObjectHideFlags: 0

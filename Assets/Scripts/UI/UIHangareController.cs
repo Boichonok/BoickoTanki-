@@ -2,7 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Tank;
-using Hangare;
+using UnityEngine.SceneManagement;
+
 using LevelConctollers;
 
 namespace UiControllers
@@ -10,10 +11,10 @@ namespace UiControllers
     public class UIHangareController : MonoBehaviour
     {
         [SerializeField]
-        private PlayerHangare playerHangare = null;
+        private NewPlayerHangare playerHangare = null;
 
         [SerializeField]
-        private EnemyHangare enemyHangare = null;
+        private NewEnemyHangare enemyHangare = null;
         [SerializeField]
         private GameObject mainMenu = null;
         [SerializeField]
@@ -26,19 +27,16 @@ namespace UiControllers
 
         public void SelectGunModule(int gunModuleBtnID)
         {
-            var gunModule = playerHangare.MakeGunModule(gunModuleBtnID);
-            playerTank = playerHangare.MakeTank();
+            var gunModule = playerHangare.GetGunModuleInfo(gunModuleBtnID);
+           
 
             uIGunModuleInfo.SetModuleName(gunModule.ModuleName);
 
-            var shell_1 = gunModule.Shells[0].GetComponent<Shell>();
-            uIGunModuleInfo.SetTextArmorPiercingDamageValue(shell_1.AttackValue);
+            uIGunModuleInfo.SetTextArmorPiercingDamageValue(gunModule.Shells[0].GetComponent<Shell>().AttackValue);
 
-            var shell_2 = gunModule.Shells[1].GetComponent<Shell>();
-            uIGunModuleInfo.SetTextArmorPiercingSubciber(shell_2.AttackValue);
+            uIGunModuleInfo.SetTextArmorPiercingSubciber(gunModule.Shells[1].GetComponent<Shell>().AttackValue);
 
-            var shell_3 = gunModule.Shells[2].GetComponent<Shell>();
-            uIGunModuleInfo.SetTextHighExplosive(shell_3.AttackValue);
+            uIGunModuleInfo.SetTextHighExplosive(gunModule.Shells[2].GetComponent<Shell>().AttackValue);
 
 
 
@@ -54,14 +52,11 @@ namespace UiControllers
 
         public void StartBattle()
         {
-            GameDataTransmiter.Instance.playerTank = playerTank.GetComponent<PlayerTankController>();
-            for (int i = 0; i < enemyHangare.CountEnemyTanks(); i++)
-            {
-                enemyHangare.SetTankNumber(i);
-                enemyHangare.MakeGunModule(Random.Range(0, 2));
-                GameDataTransmiter.Instance.enemyTank.Add(enemyHangare.MakeTank().GetComponent<AITank>());
-            }
-            Application.LoadLevel(1);
+
+            GameDataTransmiter.Instance.newPlayerHangare = playerHangare;
+            GameDataTransmiter.Instance.newEnemyHangare = enemyHangare;
+            SceneManager.LoadScene(1, LoadSceneMode.Single);
+
         }
 
         public void BackToMenu()

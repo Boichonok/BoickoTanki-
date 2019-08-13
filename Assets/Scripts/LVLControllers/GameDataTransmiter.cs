@@ -13,8 +13,9 @@ namespace LevelConctollers
         public static GameDataTransmiter Instance { get { return _instance; } }
         #endregion
 
-        public PlayerTankController playerTank;
-        public List<AITank> enemyTank = new List<AITank>();
+
+        public NewPlayerHangare newPlayerHangare;
+        public NewEnemyHangare newEnemyHangare;
 
         public bool isBackToMainMenu = true;
     }

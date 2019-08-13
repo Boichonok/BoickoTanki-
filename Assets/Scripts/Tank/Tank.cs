@@ -35,6 +35,10 @@ namespace Tank
         public Transform SpawnPoint { get { return spawnPoint; } set { spawnPoint = value; } }
 
         [SerializeField]
+        private Transform spawnModulePlace = null;
+        public Transform SpawnModulePlace { get { return spawnModulePlace; } set { spawnModulePlace = value; } }
+
+        [SerializeField]
         protected ShellType currentShellType = ShellType.ARMOR_PIERCING;
         public ShellType CurrentShellType { get { return currentShellType; } private set { currentShellType = value; }}
 
@@ -46,24 +50,21 @@ namespace Tank
 
             var shell = Instantiate(shellComponent.gameObject, GunModule.SpawnShell.position,GunModule.SpawnShell.rotation);
             
-            shell.GetComponent<Rigidbody>().velocity = gunModules.Tower.GetComponent<Rigidbody>().velocity;
+            shell.GetComponent<Rigidbody>().velocity = gunModules.GetComponent<Rigidbody>().velocity;
             shell.GetComponent<Rigidbody>().AddForce(gunModules.SpawnShell.transform.forward * GunModule.ShootPower * 500);
 
         }
-
-      
         #endregion
 
+       
 
         #region Spawn_Respawn_Tank
         protected void ReSpawnTank()
         {
             transform.position = spawnPoint.position;
-            transform.rotation = spawnPoint.rotation;//this.transform.parent.transform.position;
+            transform.rotation = spawnPoint.rotation;
             tankParams.ResetHp();
         }
-
-       
         #endregion
     }
 }

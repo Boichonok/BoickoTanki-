@@ -18,16 +18,19 @@ namespace Tank
 
         private float rotateSpeed;
 
+        private SImple_Camera camera;
 
         private void Start()
         {
-          
+
+            camera = FindObjectOfType<SImple_Camera>();
             GetComponentInChildren<MeshRenderer>().material.color = TankColor;
 
         }
 
-        private void FixedUpdate()
+        private  void FixedUpdate()
         {
+          
             PlayerTankMoving();
             ObservingFoHP();
         }
@@ -79,9 +82,8 @@ namespace Tank
 
 
 
-            Vector3 rotateTourrer = new Vector3(0, mouseXpos * TankSpeed, 0);
-            Quaternion deltaRotation = Quaternion.Euler(TankSpeed * rotateTourrer * Time.fixedDeltaTime);
-            GunModule.Tower.GetComponent<Rigidbody>().rotation = deltaRotation;
+           
+            GunModule.transform.eulerAngles = new Vector3(0, camera.transform.eulerAngles.y,0);
            
 
         }

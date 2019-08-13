@@ -10,9 +10,9 @@ namespace LevelConctollers
         [SerializeField]
         private Transform[] spawnPoints = null;
 
-        private GameObject playerTankPrefab;
+        private NewPlayerHangare playerHangare;
 
-        private List<GameObject> aiTanksPrefabs = new List<GameObject>();
+        private NewEnemyHangare enemyHangare;
 
         private PlayerTankController playerTankController;
 
@@ -31,29 +31,30 @@ namespace LevelConctollers
             if (level == 1)
             {
                 Time.timeScale = 1;
-                playerTankPrefab = GameDataTransmiter.Instance.playerTank.gameObject;
-                foreach (AITank aiTank in GameDataTransmiter.Instance.enemyTank)
-                {
-                    aiTanksPrefabs.Add(aiTank.gameObject);
-                }
+                playerHangare = GameDataTransmiter.Instance.newPlayerHangare;
+                enemyHangare = GameDataTransmiter.Instance.newEnemyHangare;
+             
             }
         }
 
         private void Start()
         {
-            playerTankController = Instantiate<GameObject>(playerTankPrefab, spawnPoints[0].position,spawnPoints[0].rotation).GetComponent<PlayerTankController>();
+            playerTankController = playerHangare.MakeTank(spawnPoints[0]) as PlayerTankController;
             playerTankController.SpawnPoint = spawnPoints[0];
             playerTankController.EventDeadAction += CountingPlayerDeth;
+
             for (int i = 0; i < spawnPoints.Length; i++)
             {
-                if (i > 0)
+                if(i > 0)
                 {
-                    aiTanksPrefabs[i-1].GetComponent<AITank>().SpawnPoint = spawnPoints[i];
-                    var enemyTankGo = Instantiate(aiTanksPrefabs[i-1], aiTanksPrefabs[i-1].GetComponent<AITank>().SpawnPoint);
-                    enemyTankGo.GetComponent<AITank>().EventDeadAction += CountingEnemyDeath;
-                    aITanksControllers.Add(enemyTankGo.GetComponent<AITank>());
+                    var enemyAi = enemyHangare.SetTankNumber(i-1).MakeTank(spawnPoints[i]) as AITank;
+                    enemyAi.SpawnPoint = spawnPoints[i];
+                    enemyAi.EventDeadAction += CountingEnemyDeath;
+                    aITanksControllers.Add(enemyAi);
                 }
             }
+
+        
         }
 
 

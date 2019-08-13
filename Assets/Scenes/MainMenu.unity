@@ -1348,9 +1348,9 @@ GameObject:
   - component: {fileID: 793439267}
   - component: {fileID: 793439269}
   - component: {fileID: 793439270}
-  - component: {fileID: 793439271}
-  - component: {fileID: 793439272}
   - component: {fileID: 793439268}
+  - component: {fileID: 793439272}
+  - component: {fileID: 793439271}
   m_Layer: 5
   m_Name: Garage_Angar
   m_TagString: Untagged
@@ -1433,8 +1433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b7bcc489b9f44b2ba5ff3ade781bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHangare: {fileID: 793439271}
-  enemyHangare: {fileID: 793439272}
+  playerHangare: {fileID: 793439272}
+  enemyHangare: {fileID: 793439271}
   mainMenu: {fileID: 1600068099}
   buttons:
   - {fileID: 761939253}
@@ -1450,24 +1450,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 793439266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de198aac4d1a74e29973c0190fe139ef, type: 3}
+  m_Script: {fileID: 11500000, guid: ca13431155fe241b78d882e58bb7063c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTank: {fileID: 1905491938708464652, guid: f67511fa6417645619a834ae3aec99c6,
-    type: 3}
---- !u!114 &793439272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793439266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fb9eba766d4e41fc842c237706de630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyTank:
+  enemyTanksPrefabs:
   - {fileID: 114231914761270388, guid: eb5c506dab35849f3aa92e264da4efe5, type: 3}
   - {fileID: 2601275393380458587, guid: 531c03805428145fdbd99f2c397801ce, type: 3}
   - {fileID: 3712945148338732945, guid: 79f0198f47cfc43f3a0b6616fd324b75, type: 3}
@@ -1478,6 +1464,21 @@ MonoBehaviour:
   - {fileID: 3110655558552199240, guid: d4b001c5962f94268a305b5b90a42b8f, type: 3}
   - {fileID: 3419914164879693100, guid: 7c7286c80e0104137aa5a2b3137d3380, type: 3}
   - {fileID: 1624355059520204297, guid: 8006cf93a9e76488ca90b63f8c9f5226, type: 3}
+  tankNumber: 0
+--- !u!114 &793439272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793439266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16bf86f622f74f679e16892506f5f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTankPrefab: {fileID: 1905491938708464652, guid: f67511fa6417645619a834ae3aec99c6,
+    type: 3}
 --- !u!1 &828931668
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,8 @@ namespace Tank
         private float age;
         private bool isLive = true;
 
+
+
         private void Start()
         {
             LifeTime = 5.0f;
@@ -51,7 +53,7 @@ namespace Tank
             if (collision.gameObject.tag != "Tower")
                 target = collision.gameObject.GetComponent<Tank>();
             else
-                target = collision.gameObject.transform.parent.GetComponentInParent<Tank>();
+                target = collision.gameObject.GetComponent<GunModule>().TankOwner;
             if (target != null)
             {
                 target.TankParams.TakeDamage(AttackValue);
