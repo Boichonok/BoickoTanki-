@@ -74,15 +74,20 @@ namespace UiControllers
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                var camera_ = FindObjectOfType<SImple_Camera>();
                 if (!menu.activeInHierarchy)
                 {
+                    Cursor.visible = true;
                     menu.SetActive(true);
                     Time.timeScale = 0;
+                    camera_.enabled = false;
                 }
                 else
                 {
+                    Cursor.visible = false;
                     menu.SetActive(false);
                     Time.timeScale = 1;
+                    camera_.enabled = true;
                 }
             }
 
@@ -91,7 +96,10 @@ namespace UiControllers
         public void CloseHelper()
         {
             if (helper.activeInHierarchy)
+            {
                 helper.SetActive(false);
+                Cursor.visible = false;
+            }
         }
 
         public void BackToHangare()

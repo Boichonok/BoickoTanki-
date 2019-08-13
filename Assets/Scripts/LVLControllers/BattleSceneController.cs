@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 using Tank;
 
@@ -33,7 +34,7 @@ namespace LevelConctollers
                 Time.timeScale = 1;
                 playerHangare = GameDataTransmiter.Instance.newPlayerHangare;
                 enemyHangare = GameDataTransmiter.Instance.newEnemyHangare;
-             
+               
             }
         }
 
